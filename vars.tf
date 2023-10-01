@@ -1,1 +1,2 @@
-varibale "cidr" {}
+variable "cidr" {}
+variable "subnets" {}
