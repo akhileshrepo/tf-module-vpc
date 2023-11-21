@@ -2,7 +2,7 @@ resource "aws_vpc" "main" {
   cidr_block = var.cidr
 }
 
-module "subnets" {
+module "public_subnet_ids" {
   source = "./subnets"
   for_each = var.subnets
   subnets = each.value
@@ -18,7 +18,7 @@ resource "aws_internet_gateway" "igw" {
 }
 
 resource "aws_route" "igw" {
-  for_each = lookup(lookup(module.subnets, "public", null), "route_table_ids", null)
+  for_each = lookup(lookup(module.public_subnet_ids, "public", null), "route_table_ids", null)
   route_table_id         = each.value["id"]
   destination_cidr_block = "0.0.0.0/0"
   gateway_id = aws_internet_gateway.igw.id
