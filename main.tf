@@ -46,7 +46,7 @@ resource "aws_route" "ngw" {
 
 resource "aws_vpc_peering_connection" "peering" {
   peer_vpc_id   = aws_vpc.main.id
-  vpc_id        = var.vpc_default_vpc_id
+  vpc_id        = var.default_vpc_id
   auto_accept   = true
   tags = merge(local.tags, { Name = "${var.env}-peer"})
 }
