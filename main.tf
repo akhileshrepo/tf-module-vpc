@@ -1,8 +1,9 @@
 resource "aws_vpc" "main" {
   cidr_block = var.cidr
-  tags       = merge(local.tags, { Name = "${var.env}-vpc" })
+  //tags       = merge(local.tags, { Name = "${var.env}-vpc" })
 }
 
+/*
 module "subnets" {
   source   = "./subnets"
   for_each = var.subnets
@@ -62,3 +63,4 @@ resource "aws_route" "default-vpc-peer-entry" {
   destination_cidr_block    = var.cidr
   vpc_peering_connection_id = aws_vpc_peering_connection.peering.id
 }
+*/
