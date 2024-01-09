@@ -35,6 +35,7 @@ resource "aws_nat_gateway" "ngw" {
   subnet_id     = element(local.public_subnet_ids, count.index)
 }
 
+
 resource "aws_route" "ngw" {
   count                       = length(local.private_route_table_ids)
   route_table_id              = element(local.private_route_table_ids, count.index)
