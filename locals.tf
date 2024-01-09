@@ -6,6 +6,8 @@ locals {
   db_subnet_ids = [for k,v in lookup(lookup(module.subnets, "db", null), "subnet_ids", null) : v.d]
   private_subnet_ids = concat(local.app_subnet_ids, local.db_subnet_ids)
 
+
+
   ##Route_tables
   public_route_table_ids = [for k,v in lookup(lookup(module.subnets, "public", null), "route_table_ids", null) : v.d]
   app_route_table_ids = [for k,v in lookup(lookup(module.subnets, "app", null), "route_table_ids", null) : v.d]
