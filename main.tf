@@ -64,13 +64,13 @@ resource "aws_route" "default-vpc-peer-entry" {
 resource "aws_instance" "main" {
   instance_type = "t2.micro"
   ami = "ami-03265a0778a880afb"
+  vpc_security_group_ids = [aws_security_group.allow_tls.id]
 }
 
 resource "aws_security_group" "allow_tls" {
   name        = "allow_tls"
   description = "Allow TLS inbound traffic"
   vpc_id      = aws_vpc.main.id
-  vpc_security_group_ids = [aws_security_group.allow_tls.id]
   subnet_id = local.app_subnet_ids[0]
 
   ingress {
