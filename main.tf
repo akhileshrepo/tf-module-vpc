@@ -63,7 +63,7 @@ resource "aws_route" "default-vpc-peer-entry" {
 
 resource "aws_instance" "main" {
   instance_type = "t2.micro"
-  image_id = "ami-03265a0778a880afb"
+  ami = "ami-03265a0778a880afb"
 }
 
 resource "aws_security_group" "allow_tls" {
