@@ -1,5 +1,35 @@
 resource "aws_vpc" "main" {
   cidr_block = var.cidr
+}
+
+module "subnets" {
+  source = "./subnets"
+  subnets = each.value
+  for_each = var.subnets
+  vpc_id     = aws_vpc.main.id
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+resource "aws_vpc" "main" {
+  cidr_block = var.cidr
   tags       = merge(local.tags, { Name = "${var.env}-vpc" })
 }
 
@@ -11,6 +41,7 @@ module "subnets" {
   tags     = local.tags
   env      = var.env
 }
+
 
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.main.id
@@ -62,3 +93,4 @@ resource "aws_route" "default-vpc-peer-entry" {
   destination_cidr_block    = var.cidr
   vpc_peering_connection_id = aws_vpc_peering_connection.peering.id
 }
+*/
