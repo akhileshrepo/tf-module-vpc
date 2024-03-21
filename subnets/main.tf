@@ -16,11 +16,6 @@ resource "aws_subnet" "main" {
 
 
 
-
-
-
-
-
 /*
 resource "aws_subnet" "main" {
   for_each          = var.subnets

@@ -1,11 +1,5 @@
-
 variable "subnets" {}
 variable "cidr" {}
-
-
-
-
-
 
 
 
