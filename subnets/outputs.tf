@@ -1,3 +1,5 @@
+
+/*
 output "subnet_ids" {
   value = aws_subnet.main
 }
@@ -5,3 +7,4 @@ output "subnet_ids" {
 output "route_table_ids" {
   value = aws_route_table.main
 }
+*/
