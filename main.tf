@@ -1,5 +1,3 @@
-
-
 resource "aws_vpc" "main" {
   cidr_block = var.cidr
   tags       = merge(local.tags, { Name = "${var.env}-vpc" })
@@ -13,7 +11,6 @@ module "subnets" {
   tags     = local.tags
   env      = var.env
 }
-
 
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.main.id
