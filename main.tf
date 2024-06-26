@@ -37,7 +37,6 @@ resource "aws_nat_gateway" "ngw" {
 }
 
 
-
 output "subnets" {
   value = module.subnets
 }
