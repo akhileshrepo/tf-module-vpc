@@ -10,11 +10,11 @@ resource "aws_route_table" "main" {
   vpc_id = var.vpc_id
 }
 
-# resource "aws_route_table_association" "a" {
-#   for_each = var.subnets
-#   subnet_id      = aws_subnet.main.id
-#   route_table_id = aws_route_table.main.id
-# }
+resource "aws_route_table_association" "a" {
+  for_each = var.subnets
+  subnet_id      = lookup(lookup(aws_subnet.main, each.key, null), "id", null)
+  route_table_id = lookup(lookup(aws_route_table.main, each.key, null), "id", null)
+}
 
 output "subnet_id" {
   value = aws_subnet.main
