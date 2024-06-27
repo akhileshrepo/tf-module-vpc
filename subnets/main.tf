@@ -16,7 +16,3 @@ resource "aws_route_table_association" "main" {
   route_table_id = lookup(lookup(aws_route_table.main, each.key, null), "id", null)
 }
 
-resource "aws_internet_gateway" "igw" {
-  vpc_id = var.vpc_id
-}
-
