@@ -1,4 +1,4 @@
-variable "vpc_id" {}
 variable "subnets" {}
-variable "env" {}
+variable "vpc_id" {}
 variable "tags" {}
+variable "env" {}
