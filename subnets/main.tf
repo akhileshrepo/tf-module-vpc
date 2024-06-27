@@ -21,10 +21,4 @@ resource "aws_route_table_association" "a" {
   route_table_id = lookup(lookup(aws_route_table.main, each.key, null), "id", null)
 }
 
-output "subnets_ids" {
-  value = aws_subnet.main
-}
 
-output "route_table_ids" {
-  value = aws_route_table.main
-}
